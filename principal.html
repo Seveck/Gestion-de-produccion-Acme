@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACME - Principal</title>
+    <script src="js/main.js" type="module" defer></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <nav-acme></nav-acme>
+
+    <div class="dashboard-container">
+        <section class="table-card">
+            <div class="table-header">
+                <h2>Usuarios Registrados</h2>
+                <button id="btnNuevoUsuario" class="btn-create">Nuevo Usuario</button>
+            </div>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Identificación</th>
+                            <th>Nombre</th>
+                            <th>Rol / Cargo</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaUsuariosBody">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <div id="modalUsuario" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <form id="registroUsuarios">
+                <h1 id="form-titulo">Registro de usuarios</h1>
+
+                <div class="input">
+                    <label class="label-text">Nombre completo</label>
+                    <input type="text" name="nombre" id="nombre" placeholder="Ingresa tu nombre" class="input-space" required>
+                </div>
+                
+                <div class="input">
+                    <label class="label-text">Número de identificación</label>
+                    <input type="number" name="username" id="username" placeholder="Ingresa tu número" class="input-space" required min="0">
+                </div>
+
+                <div class="input">
+                    <label class="label-text">Rol / Cargo</label>
+                    <select name="rol" id="cargo" class="select-space" required>
+                        <option value="" disabled selected>Selecciona una opción</option>
+                        <option value="administrador">Administrador</option>
+                        <option value="cliente">Cliente</option>
+                    </select>
+                </div>
+
+                <div class="input">
+                    <label class="label-text">Contraseña</label>
+                    <input type="password" name="password" id="password" placeholder="Ingresa tu contraseña" class="input-password" required>
+                </div>
+
+                <p id="error"></p>
+
+                <button type="submit" class="btn-primary" id="btnGuardar">Guardar Usuario</button>
+            </form>
+        </div>
+    </div>
+
+    <button id="btnSalir">Salir</button>
+</body>
+</html>

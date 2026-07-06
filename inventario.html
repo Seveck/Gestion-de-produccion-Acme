@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACME - Inventario</title>
+    <script src="js/inventario.js" type="module" defer></script>
+    <link rel="stylesheet" href="css/prodYinv.css">
+</head>
+<body>
+
+    <nav-acme></nav-acme>
+
+    <div class="dashboard-container">
+        <section class="table-card">
+            <div class="table-header">
+                <h2>Inventario General</h2>
+                <button id="btnNuevoProducto" class="btn-create">Agregar Ítem</button>
+            </div>
+
+            <div class="input" style="margin-bottom: 20px;">
+                <input type="text" id="buscador" class="input-space" placeholder="Buscar por código o nombre...">
+            </div>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                            <th>Tipo</th>
+                            <th>Stock</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaProductosBody">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <div id="modalProducto" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <form id="registroProductos">
+                <h2>Datos del Ítem</h2>
+
+                <div class="input">
+                    <label class="label-text">Código (Ej: MP-HARINA, PT-GALLETA)</label>
+                    <input type="text" id="codigo" class="input-space" required>
+                </div>
+
+                <div class="input">
+                    <label class="label-text">Nombre del Producto</label>
+                    <input type="text" id="nombreProducto" class="input-space" required>
+                </div>
+
+                <div class="input">
+                    <label class="label-text">Tipo de Ítem</label>
+                    <select id="tipo" class="select-space" required>
+                        <option value="Materia Prima">Materia Prima</option>
+                        <option value="Producto Terminado">Producto Terminado</option>
+                    </select>
+                </div>
+                
+                <div class="input">
+                    <label class="label-text">Cantidad en Stock</label>
+                    <input type="number" id="cantidad" class="input-space" required min="0">
+                </div>
+
+                <p id="error" class="error-text"></p>
+
+                <button type="submit" class="btn-primary" id="btnGuardar">Guardar</button>
+            </form>
+        </div>
+    </div>
+
+    <button id="btnSalir">Salir</button>
+</body>
+</html>

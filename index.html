@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACME - Iniciar Sesión</title>
+    <link rel="stylesheet" href="css/login.css">
+    <script src="js/login.js" defer></script>
+</head>
+<body>
+    <main class="login-card">
+        <h1 class="tituloSesion">Iniciar sesión</h1>
+        
+        <form class="login-form">
+            <div class="input">
+                <label class="label-text">Numero de identificación</label>
+                <input type="text" name="username" placeholder="Ingresa tu usuario" class="input-space" autofocus required>
+            </div>
+
+            <div class="input">
+                <label class="label-text">Rol / Cargo</label>
+                <select name="rol" id="cargo" class="select-space" required>
+                    <option value="" disabled selected>Selecciona una opción</option>
+                    <option value="administrador">Administrador</option>
+                    <option value="cliente">Cliente</option>
+                </select>
+            </div>
+            
+            <div class="input">
+                <label class="label-text">Password</label>
+                <input type="password" name="password" placeholder="Ingresa tu contraseña" class="input-space" required>
+            </div>
+            
+            <p id="error"></p>
+
+            <button type="submit" class="btn-login">Login</button>
+            <h6>¿No tienes cuenta? <a href="registro.html">Oprime aquí</a></h6>
+        </form>
+    </main>
+</body>
+</html>

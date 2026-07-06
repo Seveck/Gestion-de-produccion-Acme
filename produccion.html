@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACME - Planta de Producción</title>
+    <script src="js/produccion.js" type="module" defer></script>
+    <link rel="stylesheet" href="css/prodYinv.css">
+</head>
+<body>
+
+    <nav-acme></nav-acme>
+
+    <div class="dashboard-container">
+        <section class="table-card">
+            <div class="table-header">
+                <h2>Procesos de Production Ejecutados</h2>
+                <button id="btnNuevaProduccion" class="btn-create">Iniciar Producción</button>
+            </div>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID Proceso</th>
+                            <th>Producto Fabricado</th>
+                            <th>Cantidad</th>
+                            <th>Resumen de Insumos Usados</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaProduccionBody">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <div id="modalProduccion" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <form id="registroProduccion">
+                <h2>Nueva Orden de Fabricación</h2>
+
+                <div class="input">
+                    <label class="label-text">Selecciona el Producto a Fabricar</label>
+                    <select id="productoAFabricar" class="select-space" required>
+                    </select>
+                </div>
+
+                <div id="cuadroReceta" class="formula-section hidden-element">
+                    <p class="formula-title">Requisitos por unidad:</p>
+                    <p id="textoReceta" style="font-size: 13px; color: #555; line-height: 1.6;"></p>
+                </div>
+                
+                <div class="input">
+                    <label class="label-text">Cantidad a Producir</label>
+                    <input type="number" id="cantidadProduccion" class="input-space" required min="1" value="1">
+                </div>
+
+                <p id="errorProduccion" class="error-text"></p>
+
+                <button type="submit" class="btn-primary" id="btnGuardarProduccion">Fabricar Producto</button>
+            </form>
+        </div>
+    </div>
+
+    <button id="btnSalir">Salir</button>
+</body>
+</html>
