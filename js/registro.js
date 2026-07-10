@@ -54,6 +54,8 @@ form.addEventListener('submit', async (e) => {
             }
         });
 
+        localStorage.setItem("user", usuario.nombre);
+
         if (respuestaRegistro.ok) {
             errorMsg.style.color = "green";
             errorMsg.textContent = "Registrado con éxito. Redireccionando...";

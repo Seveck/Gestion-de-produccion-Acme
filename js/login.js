@@ -37,7 +37,7 @@ form.addEventListener('submit', async (e) => {
             return;
         }
         
-        localStorage.setItem("user", usuario);
+        localStorage.setItem("user", usuario.nombre);
 
         errorMsg.style.color = "green";
         errorMsg.textContent = "Ingreso exitoso. Redireccionando...";

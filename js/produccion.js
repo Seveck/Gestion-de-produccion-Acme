@@ -110,15 +110,18 @@ async function cargarHistorial() {
         tabla.innerHTML = ""; 
         
         if (datos) {
-            for (const id in datos) {
+            const llavesOrdenadas = Object.keys(datos).reverse();
+            for (const id of llavesOrdenadas) {
                 if (id === "undefined" || id === "error" || !datos[id]) continue;
                 
                 const r = datos[id];
                 const producto = r.productoTerminado || "Desconocido";
                 const cantidad = r.cantidadFabricada || 0;
                 const resumen = r.resumenMateriaPrima || "Sin detalles";
+                const usuario = r.usuario || "N/A";
+                const fecha = r.fecha || "N/A";
 
-                tabla.innerHTML += "<tr><td><strong>#" + id + "</strong></td><td>" + producto + "</td><td>" + cantidad + " u</td><td>" + resumen + "</td></tr>";
+                tabla.innerHTML += "<tr><td><strong>#" + id + "</strong></td><td>" + producto + "</td><td>" + cantidad + " u</td><td>" + resumen + "</td><td>" + usuario + "</td><td>" + fecha + "</td></tr>";
             }
         }
     } catch (err) {
@@ -130,6 +133,8 @@ form.addEventListener('submit', async (e) => {
     e.preventDefault();
     errorMsg.textContent = "";
     
+    const usuarioActivo = localStorage.getItem("user");
+    const fechaActual = new Date().toLocaleString("es-CO");
     const prodID = selectProd.value;
     const cant = parseInt(inputCantidad.value);
 
@@ -177,6 +182,8 @@ form.addEventListener('submit', async (e) => {
     const nuevoID = Object.keys(hist).length + 1;
 
     const orden = { 
+        fecha: fechaActual,
+        usuario: usuarioActivo,
         productoTerminado: RECETAS[prodID].nombre, 
         cantidadFabricada: cant, 
         resumenMateriaPrima: resumen 
